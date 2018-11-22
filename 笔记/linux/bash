@@ -1,0 +1,55 @@
+bash：
+命令行编辑：
+	光标跳转：
+		ctrl+a 行首
+		ctel+e行尾
+		ctrl+u 删除光标前内容
+		ctrl+k 删除光标后内容
+        crtl+l 清屏
+    命令历史：
+    history：
+        -c 删除历史
+        -d 删除偏移量的历史
+        -w 保存命令历史至历史文件中
+    !n 执行历史中的n条命令
+    !-n 执行历史中的倒数n条命令
+    !! 执行上一条命令
+
+    环境变量：
+    PATH:命令搜索路径
+    HISTSIZE:命令历史缓冲大小
+命令别名：
+    alias 别名=源命令 [选项]' 在shell中定义的别名仅在当前shell生命周期中有效
+    unalias 别名 撤销别名
+
+
+
+加密方法：
+    对称加密：加密和解密使用同一个密码
+    公钥加密：每一个密码成对出现，一个为私钥（secret key），一个为公钥（public key）
+    单向加密：散列加密
+
+
+文件默认权限不能拥有执行权限，会默认+1
+
+bash的配置文件
+    /etc/profile /etc/profile.d/*.sh /etc/bashrc
+    ~/.bashrc ~/.bash_profile
+profile类的文件：
+    设定环境变量;
+    运行命令或脚本
+
+bashrc类的文件：
+    设定本地变量
+    定义命令别名
+
+登录式shell：正常通过某终端登录
+    su - username
+    su -l username
+    --读取配置文件顺序——/etc/profile-->/etc/profile.d/*.sh --> ~./bashrc -->~/.bash_profile
+非登录式shell
+    su username
+    图形终端下打开命令窗口
+    自动执行的shell脚本
+    --读取配置文件顺序—— ~/.bashrc -->/etc/bashrc -->etc/profile.d/*.sh
+    

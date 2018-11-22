@@ -1,0 +1,72 @@
+glob：
+	bash中用于实现文件名“通配”
+		通配符：* ？ []
+		1) 任意长度任意字符
+		2）一个长度任意字符
+		3）符合条件任意单个字符
+		[]  
+			[0-9] 数字
+			[a-z]字母 不区分大小写
+			[a-Z] 
+		4[^] 匹配指定范围外的任意单个字符
+			[^0-9]
+		5 专用字符集合
+			[:digit:] 任意数字
+			[:lower:] 任性小写字母
+			[:upper:] 任意大写字母
+			[:alpha:] 任意大小写字母
+			[:alnum:] 任意数字或字母
+			[:space:] 空格
+			[:punct:] 标点符号
+
+bash快捷键
+	crtl+l 清屏 clear
+	crtl+a 跳转行首
+	crtl+e 跳转行尾
+	crtl+c 取消命令执行
+	crtl+u 删除光标前内容
+	crtl+k 删除光标后内容
+	
+	
+bash的I/O重定向及管道
+	程序：指令+数据
+		读取数据：input
+		输出数据：output
+	标准输入：keyborad 0
+	标准输出：monitor 1
+	标准错误输出 monitor 2
+	
+	I/O重定向:改变标准位置
+	输出重定向 
+		> (覆盖重定向)
+		>> (追加重定向)
+		
+		#set -c ：禁止讲内容覆盖输出至已有内容的文件中 
+			>|强制覆盖
+		&> = 2>&&>
+		
+	
+	输入重定向： <
+		tr命令 ：转换或删除字符
+		tr [OPTION] ... SET1[SET2]
+	
+	HERE Documentation :<<
+		#cat <<EOF
+		#cat >/path/to/somefile <<EOF
+		
+	管道：
+		COMMAND1 |COMMAND2 |COMMAND3 | ....
+		
+		NOTE :最后一个命令会在shell的子进程中执行
+		
+		tee 一路输入，两路输出
+	练习：
+		1/etc/passwd 中前5行改为大写输出到/tmp/passwd.out中
+		 head -n 5 /etc/passwd | tr 'a-z 'A-z'
+		
+		
+		wc cut sort uniq
+		
+		
+	以冒号分割，取出/etc/passwd文件的6至10行，并将这些信息按第三个字段的数字大小进行排序，最后仅显示嘴个的第一个字段	
+	
